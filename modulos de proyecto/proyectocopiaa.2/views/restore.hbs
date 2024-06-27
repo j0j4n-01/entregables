@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/recove.carousel.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/recove.min.css">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/recove.css">
+  <link rel="stylesheet" href="css/sweetalert2.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+  <title>Restablecer contraseña</title>
+</head>
+
+<body>
+
+  <div class="half">
+    <div class="bg order-1 order-md-2" style="background-image: url('assets/img/carrots.jpg');"></div>
+    <div class="contents order-2 order-md-1">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-6">
+            <div class="form-block">
+              <div class="text-center mb-5">
+                <h3>Restablece tu contraseña</h3>
+                <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
+              </div>
+              <form action="#" method="post" class="needs-validation form">
+                <div class="form-group last mb-3">
+                  <label for="password">Nueva contraseña</label>
+                  <input type="password" class="form-control" id="password" required
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$">
+                  <div class="invalid-feedback">
+                    Por favor ingresa una contraseña válida.
+                  </div>
+                </div>
+
+                <div class="form-group last mb-3">
+                  <label for="confirmPassword">Confirmar contraseña</label>
+                  <input type="password" class="form-control" id="confirmPassword" required
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$">
+                  <div class="invalid-feedback">
+                    Por favor ingresa la misma contraseña de arriba.
+                  </div>
+                </div>
+
+                <div class="d-sm-flex mb-5 align-items-center">
+                  <span class="ml-auto"><a href="/" class="forgot-pass">Iniciar sesión</a></span>
+                </div>
+
+                <button class="btn btn-block btn-primary submit-button-Password" type="submit">Guardar</button>
+              </form>
+
+
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              <script src="js/jquery-3.3.1.min.js"></script>
+              <script src="js/popper.min.js"></script>
+              <script src="js/bootstrap.min.js"></script>
+              <script src="js/main.js"></script>
+              <script src="js/scripts.js"></script>
+
+</body>
+
+</html>

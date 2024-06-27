@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Entradas</title>
+
+    <link href="public/css/crud.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sweetalert2.css">
+    <link rel="stylesheet" href="css/material.min.css">
+    <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="vendor/datatables/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <!-- Notifications area -->
+    <!-- Notifications area -->
+    {{>notifications }}
+    <!-- navBar -->
+    {{>navBar }}
+    <!-- navLateral -->
+    {{>navLateral }}
+    <!-- pageContent -->
+    <section class="full-width pageContent">
+        {{!-- FORM --}}
+        <div class="mt-5" id="wrapper">
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <div class="container-fluid">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary"></h6>
+                                <h1>Registrar compra</h1>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <div class="container d-flex justify-content-center">
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <form class="row g-3 form">
+                                                    <div class="col-md-6">
+                                                        <label for="searchInput" class="form-label">Buscar
+                                                            producto</label>
+                                                        <input type="search" class="form-control"
+                                                            id="inputNombreCategoria" pattern="[A-Za-z\s]+"
+                                                            placeholder="ingrese nombre del producto">
+                                                        <div class="invalid-feedback">formato no valido</div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputNombreCategoria" class="form-label">
+                                                            producto</label>
+                                                        <input type="search" class="form-control"
+                                                            id="inputNombreCategoria" pattern="[A-Za-z\s]+" required>
+                                                        <div class="invalid-feedback">Por favor ingresa un nombre al
+                                                            producto.</div>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-6">
+                                                        <label for="inputDescripcion"
+                                                            class="form-label">existencias</label>
+                                                        <input type="text" class="form-control" id="inputDescripcion"
+                                                            pattern="[0-9]+" required>
+                                                        <div class="invalid-feedback">Por favor ingresa una existencia
+                                                            valida.</div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputDescripcion"
+                                                            class="form-label">minimo.exs</label>
+                                                        <input type="text" class="form-control" id="inputDescripcion"
+                                                            pattern="[0-9]+" required>
+                                                        <div class="invalid-feedback">Por favor ingresa un minimo de
+                                                            existencia valida.</div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputDescripcion"
+                                                            class="form-label">maximo.exs</label>
+                                                        <input type="text" class="form-control" id="inputDescripcion"
+                                                            pattern="[0-9]+" required>
+                                                        <div class="invalid-feedback">Por favor ingresa un maximo de
+                                                            existencia valida.</div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Cancelar</button>
+                                                        <button class="btn btn-primary submit-button"
+                                                            type="button">Guardar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{!-- tabladetalle --}}
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable2" width="100%"
+                                            cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>CATEGORIA</th>
+                                                    <th>PROVEEDOR</th>
+                                                    <th>NIT</th>
+                                                    <th>FECHA.RECIBO</th>
+                                                    <th>FECHA.REGISTRO</th>
+                                                    <th>NRO.RECIBO</th>
+                                                    <th>VALOR DE COMPRA</th>
+                                                    <th>VALOR DE VENTA</th>
+                                                    <th>COD.BARRA</th>
+                                                    <th>ACCIONES</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td>lacteos</td>
+                                                    <td>colanta</td>
+                                                    <td>432344</td>
+                                                    <td>12/04/2024</td>
+                                                    <td>03/04/2024</td>
+                                                    <td>7654345</td>
+                                                    <td>40000</td>
+                                                    <td>2500</td>
+                                                    <td>123458765</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-danger"
+                                                            onclick="alertQuestion()"><i
+                                                                class="bi bi-trash-fill"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>002</td>
+                                                    <td>lacteos</td>
+                                                    <td>colanta</td>
+                                                    <td>7654654</td>
+                                                    <td>1/01/2024</td>
+                                                    <td>2/01/2024</td>
+                                                    <td>8765567</td>
+                                                    <td>30000</td>
+                                                    <td>2000</td>
+                                                    <td>987654567</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-danger"
+                                                            onclick="alertQuestion()"><i
+                                                                class="bi bi-trash-fill"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <center>
+                                            <button type="button" class="btn btn-primary" onclick="mostrarAlerta2()">
+                                                Guardar</button>
+                                        </center>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.container-fluid -->
+                </div>
+                <!-- End of Main Content -->
+            </div>
+            <!-- End of Content Wrapper -->
+        </div>
+
+
+
+    </section>
+
+    <script>
+        //validacion de form//
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            var form = event.target.closest('form');
+            form.classList.add('was-validated');
+
+            if (form.checkValidity()) {
+                alertSuccess();
+
+                setTimeout(function () {
+                    form.submit();
+                    resetForm(form);
+                }, 1200);
+            }
+        }
+        document.querySelectorAll(".submit-button").forEach(button => button.addEventListener("click", handleSubmit));
+
+    </script>
+
+
+
+
+
+
+
+    <!-- endPageContent -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="js/datatables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/sweetalert2.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>

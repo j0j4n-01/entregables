@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sales</title>
+
+	<link href="public/css/crud.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/sweetalert2.css">
+	<link rel="stylesheet" href="css/material.min.css">
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="vendor/datatables/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	
+
+</head>
+
+<body class="">
+	<!-- Notifications area -->
+	{{>notifications }}
+	<!-- navBar -->
+	{{>navBar }}
+	<!-- navLateral -->
+	{{>navLateral }}
+
+	<!-- pageContent -->
+	<section class="full-width pageContent">
+		{{!-- <div>
+			<a href="./sales" class="m-2 p-2"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="50"
+					fill="currentColor" class=" bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+					<path
+						d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+				</svg></a>
+		</div> --}}
+
+		{{!-- CRUD --}}
+			<div class="mt-4" id="wrapper">
+			<div id="content-wrapper" class="d-flex flex-column">
+				<div id="content">
+					<div class="container-fluid">
+						<div class="card shadow mb-4">
+
+							<div class="card-header py-3 d-flex justify-content-between">
+
+								<div class="col-7">
+									<h4 class="d-flex justify-content- ">Historico de ventas</h4>
+								</div>
+
+								<div class="col-5 d-flex justify-content-end py-4">
+
+									<a href="./sales" class=""><button type="submit" class="btn btn-dark px-4 mx-4"><i
+												class="bi bi-cart"></i> Nueva Venta</button></a>
+									<a href="" class=""><button type="submit" class="btn btn-success px-4"><i
+												class="bi bi-file-earmark-arrow-down"></i> Informe</button></a>
+								</div>
+							</div>
+
+							<div class="card-body text-center">
+								<div class="table-responsive">
+									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+										<thead>
+											<tr>
+												<th>N° VENTA</th>
+												<th>CLIENTE</th>
+												<th>MONTO CREDITADO</th>
+												<th>FECHA</th>
+												<th>TOTAL</th>
+												<th>ESTADO</th>
+												<th>OPCIONES</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>001</td>
+												<td>NN</td>
+												<td>0</td>
+												<td>12/03/2024</td>
+												<td>10.000</td>
+												<td>Activo</td>
+												<td class="align-middle text-center">
+													<div
+														style="display: flex; justify-content: center; align-items: center;">
+														<div style="margin-right: 10px;">
+															<div class="form-check form-switch ">
+																<input class="form-check-input" type="checkbox"
+																	role="switch" checked
+																	onclick="alertSuccesClients()">
+															</div>
+														</div>
+														<button class="btn btn-primary p-2 " data-bs-toggle="modal"
+															data-bs-target="#viewModal"><i class=" bi bi-eye-fill"></i>
+														</button>
+													</div>
+
+												</td>
+											</tr>
+											<tr>
+												<td>001</td>
+												<td>NN</td>
+												<td>0</td>
+												<td>12/03/2024</td>
+												<td>10.000</td>
+												<td>Activo</td>
+												<td class="align-middle text-center">
+													<div
+														style="display: flex; justify-content: center; align-items: center;">
+														<div style="margin-right: 10px;">
+															<div class="form-check form-switch ">
+																<input class="form-check-input" type="checkbox"
+																	role="switch" checked
+																	onclick="alertSuccesClients()">
+															</div>
+														</div>
+														<button class="btn btn-primary p-2 " data-bs-toggle="modal"
+															data-bs-target="#viewModal"><i class=" bi bi-eye-fill"></i>
+														</button>
+													</div>
+
+												</td>
+											</tr>
+											<tr>
+												<td>001</td>
+												<td>NN</td>
+												<td>0</td>
+												<td>12/03/2024</td>
+												<td>10.000</td>
+												<td>Activo</td>
+												<td class="align-middle text-center">
+													<div
+														style="display: flex; justify-content: center; align-items: center;">
+														<div style="margin-right: 10px;">
+															<div class="form-check form-switch ">
+																<input class="form-check-input" type="checkbox"
+																	role="switch" checked
+																	onclick="alertSuccesClients()">
+															</div>
+														</div>
+														<button class="btn btn-primary p-2 " data-bs-toggle="modal"
+															data-bs-target="#viewModal"><i class=" bi bi-eye-fill"></i>
+														</button>
+													</div>
+
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.container-fluid -->
+				</div>
+				<!-- End of Main Content -->
+			</div>
+			<!-- End of Content Wrapper -->
+		</div>
+
+	</section>
+
+	{{!-- --------------------------------------------MODAL VIEW------------------------------------------ --}}
+	<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					{{!-- <h1 class="modal-title fs-5" id="exampleModalLabel">VENTA</h1> --}}
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form action="">
+						<div class="invoice-header"
+							style="height: 250pxpx; display: static; overflow-y: scroll; max-height: 370px; float: left; width: 100%;">
+							<div class="invoice-info">
+								<h3 class="invoice-title">Productos</h3>
+								<p class="invoice-date"><b>N° Venta: 001</b> </p>
+								<p class="invoice-date"><b>Fecha/Hora: </b>12/03/2024 (6:40:12) </p>
+								<p class="client-info"><b>Cliente: </b>NN </p>
+								<p class="client-info"><b>Monto acreditado: </b>0</p>
+								<div class="full-width divider-menu-h"></div>
+
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">Nombre</th>
+											<th scope="col">Cantidad</th>
+											<th scope="col">Subtotal</th>
+											<th scope="col">Total</th>
+
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>Leche Colanta 1L</td>
+											<td>2</td>
+											<td>3600</td>
+											<td>7200</td>
+										</tr>
+										<tr>
+											<th scope="row">2</th>
+											<td>Chocolate Tesalia <br> pastilla X2</td>
+											<td>4</td>
+											<td>700</td>
+											<td>2800</td>
+										</tr>
+									</tbody>
+								</table>
+								<div>
+									<p><b>TOTAL: </b> 10000 </p>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" onclick="printInvoice()" class="btn btn-info"
+							data-bs-dismiss="modal">imprimir</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	{{!-- ALERTA DE IMPRESION --}}
+	<script>
+		let timerInterval;
+
+		function printInvoice() {
+
+			// After printing (for both options)
+			Swal.fire({
+				title: "Imprimiendo Factura", // Change title to "Printing Invoice" or similar
+				html: "Espere un momento...", // Change message to "Please wait..." or similar
+				timer: 1000, // Adjust timer duration as needed
+				timerProgressBar: true,
+				didOpen: () => {
+					Swal.showLoading();
+				},
+				willClose: () => {
+					clearInterval(timerInterval);
+				}
+			});
+		}
+
+	</script>
+
+
+	<!-- endPageContent -->
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+	<script src="js/datatables.js"></script>
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="js/sweetalert2.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
